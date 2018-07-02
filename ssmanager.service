@@ -1,0 +1,12 @@
+[Unit]
+Description=Shadowsocks Manager Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=90s
+ExecStart=/bin/ss-manager --manager-address /var/run/shadowsocks-manager.sock -c /etc/shadowsocks-manager/config.json 
+
+[Install]
+WantedBy=multi-user.target
